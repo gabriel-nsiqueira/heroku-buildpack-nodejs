@@ -211,7 +211,7 @@ npm_node_modules() {
       else
         echo "Installing node modules (package.json)"
       fi
-      monitor "npm-install" npm install --production="$production" --unsafe-perm --userconfig "$build_dir/.npmrc" 2>&1
+      monitor "npm-install" npm install --ignore-scripts --production="$production" --unsafe-perm --userconfig "$build_dir/.npmrc" 2>&1
     fi
   else
     echo "Skipping (no package.json)"
@@ -231,7 +231,7 @@ npm_rebuild() {
     else
       echo "Installing any new modules (package.json)"
     fi
-    monitor "npm-rebuild" npm install --production="$production" --unsafe-perm --userconfig "$build_dir/.npmrc" 2>&1
+    monitor "npm-rebuild" npm install --ignore-scripts --production="$production" --unsafe-perm --userconfig "$build_dir/.npmrc" 2>&1
   else
     echo "Skipping (no package.json)"
   fi
